@@ -1240,7 +1240,7 @@ f=open('HDM_bd_02-01_01_120.amc',encoding='ISO-8859-15')
 ```
 
 ## radix Sort
-```
+```pythob=
 def sort(number, d):
     length = len(number)
     k = 0
@@ -1266,6 +1266,54 @@ def sort(number, d):
 number = [73, 22, 93, 43, 55, 14, 28, 65, 39, 81, 33, 100]
 sort(number, 100)
 print(number)
+```
+
+## pandas
+
+### 計算單欄位個數
+```dataframe["T-AS-Residue"].value_counts()```
+
+![](https://i.imgur.com/3Ep4Jqa.png)
+
+用 searborn 印出
+```
+ax = sns.countplot(x="T-AS-Residue",data=dataframe)
+for p in ax.patches:
+    ax.annotate('{:.1f}'.format(p.get_height()),(p.get_x()+0.1, p.get_height()+5))
+```
+
+![](https://i.imgur.com/prGQFKD.png)
+
+### 刪除column
+```df.drop('column_name', axis=1, inplace=True)```
+
+
+```
+df = df.drop(columns=['column_nameA', 'column_nameB'])
+```
+
+### 刪除nan
+https://www.delftstack.com/zh-tw/howto/python-pandas/pandas-drop-rows-with-nan/
+
+```
+data = data.dropna()
+
+data = data.dropna(subset=["Id"])
+```
+
+### 遍歷
+product.iterrows()
+
+### query
+```
+df.query("Age > @age & Sex == 'male'")
+
+product[product.Date == data_list[index-1]]
+```
+### sort by date
+```
+product["Date"] = pd.to_datetime(product.Date)
+product.sort_values(by='Date')
 ```
 
 ## numpy
