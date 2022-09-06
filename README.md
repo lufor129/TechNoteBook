@@ -1142,6 +1142,28 @@ Optional argument: 33
 Optional kwargs argument key: k1 value 44
 Optional kwargs argument key: k2 value 55
 ```
+## 打包package
+https://leidawt.github.io/post/python-package%E6%89%93%E5%8C%85%E5%88%B6%E4%BD%9C/
+
+模板: https://github.com/navdeep-G/setup.py
+
+![](https://i.imgur.com/mooMHfQ.png)
+
+打包流程:
+
+1. 準備一個要上傳的code with python (同一目錄下需要有__init__.py file)
+2. 註冊pypi/pypitest account .
+3. install setuptools , wheel .
+4. 設定 setup.py .
+5. write License file.
+6. write readme.md .
+7. 執行python setup.py sdist.
+8. 上傳打包好的tar.gz 至 pypitest 上.
+9. 使用pip install 安裝 剛剛上傳之pypitest package .
+10. 測試成功後，正式上傳pypi上
+
+https://medium.com/%E8%B3%87%E5%B7%A5%E7%AD%86%E8%A8%98/%E6%89%93%E5%8C%85python-module-%E5%88%B0pypi-%E4%B8%8A-aef1f73e1774
+
 ## Encoding
 ```python=
 response.content.decode("utf-8", "replace")
